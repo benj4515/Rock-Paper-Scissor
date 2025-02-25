@@ -1,5 +1,7 @@
 package rps.bll.game;
 
+import java.util.Random;
+
 /**
  * The various move options in the game
  *
@@ -8,5 +10,12 @@ package rps.bll.game;
 public enum Move {
     Rock,
     Paper,
-    Scissor,
+    Scissor,;
+
+    private static final Random PRNG = new Random();
+
+    public static Move randomMove()  {
+        Move[] move = values();
+        return move[PRNG.nextInt(move.length)];
+    }
 }
