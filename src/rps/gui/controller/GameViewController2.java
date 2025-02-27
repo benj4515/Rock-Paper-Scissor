@@ -16,18 +16,16 @@ import rps.bll.player.Player;
 import rps.bll.player.PlayerType;
 
 import java.net.URL;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
-import static rps.bll.game.Move.Rock;
-import static rps.bll.game.Move.Scissor;
 
 /**
  *
  * @author smsj
  */
-public class GameViewController implements Initializable {
+public class GameViewController2 implements Initializable {
 
     @FXML
     private Button BtnPaper;
@@ -40,7 +38,7 @@ public class GameViewController implements Initializable {
 
     private String input;
 
-
+    private GameManager gameManager;
 
 
     /**
@@ -62,64 +60,53 @@ public class GameViewController implements Initializable {
     private String onBtnPaperClick(ActionEvent actionEvent) {
         System.out.println("Paper clicked");
         input = "Paper";
-        return input;
+        playRound();
 
+        return input;
     }
 
     private String onBtnRockClick(ActionEvent actionEvent) {
         System.out.println("Rock clicked");
         input = "Rock";
-        return input;
+        playRound();
 
+        return input;
     }
 
     private String  onBtnScissorClick(ActionEvent actionEvent) {
         System.out.println("Scissor clicked");
         input = "Scissor";
-        return input;
+        playRound();
 
+        return input;
     }
 
     private String getPlayerMove(){
-
-        String Click = "";
-
-        if (BtnPaper.isPressed() || BtnRock.isPressed() || BtnScissor.isPressed()) {
-            input = Click;
-        }
-        return Click;
+        return input;
     }
 
+
     public void startGame() {
-        System.out.println("Welcome to the classic Rock, Paper and Scissor game!");
-        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Welcome to Rock-Paper-Scissors!");
 
-        System.out.print("Please type in your player name: ");
-        String playerName = keyboard.next();
-
-        IPlayer human = new Player(playerName, PlayerType.Human);
+        IPlayer human = new Player("Player", PlayerType.Human);
         IPlayer bot = new Player(getRandomBotName(), PlayerType.AI);
 
+        gameManager = new GameManager(human, bot);
         System.out.println("Your opponent is " + bot.getPlayerName());
-        System.out.println("Starting game.... good luck both!");
+    }
 
-        GameManager ge = new GameManager(human, bot);
+    private void playRound() {
+        if (input != null) {
+            Move playerMove = Move.valueOf(input);
+            gameManager.playRound(playerMove);
 
-        while (true) {
-            String playerMove = getPlayerMove();
-
-            if (playerMove.equalsIgnoreCase("exit"))
-                break;
-
-            ge.playRound(Move.valueOf(playerMove));
-
-            ge.getGameState().getHistoricResults().forEach((result) -> {
-                System.out.println(getResultAsString(result));
-            });
+            List<Result> results = (List<Result>) gameManager.getGameState().getHistoricResults();
+            if (!results.isEmpty()) {
+                Result lastResult = results.get(results.size() - 1);
+                System.out.println(getResultAsString(lastResult));
+            }
         }
-
-        if (ge.getGameState().getHistoricResults().size() > 0)
-            System.out.println("Game stats: ....ehmmmm..not implemented yet...please FIXME");
     }
 
     private String getRandomBotName() {

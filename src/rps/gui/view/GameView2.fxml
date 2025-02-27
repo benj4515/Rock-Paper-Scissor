@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="489.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController3">
+
+   <children>
+      <!-- Rock Button -->
+      <Button fx:id="BtnRock" layoutX="104.0" layoutY="338.0" mnemonicParsing="false">
+         <graphic>
+            <ImageView fx:id="ImgRock" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+
+      <!-- Paper Button -->
+      <Button fx:id="BtnPaper" layoutX="341.0" layoutY="338.0" mnemonicParsing="false">
+         <graphic>
+            <ImageView fx:id="ImgPaper" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+
+      <!-- Scissor Button -->
+      <Button fx:id="BtnScissor" layoutX="615.0" layoutY="338.0" mnemonicParsing="false">
+         <graphic>
+            <ImageView fx:id="ImgScissor" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+
+      <!-- Label to Show Result -->
+      <Label fx:id="lblResult" layoutX="104.0" layoutY="426.0" prefHeight="25.0" prefWidth="609.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Result will appear here" textAlignment="CENTER" />
+
+      <ImageView fx:id="ImgGame" fitHeight="200.0" fitWidth="297.0" layoutX="241.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblHuman" layoutX="56.0" layoutY="66.0" text="Human:" textAlignment="CENTER">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAI" layoutX="615.0" layoutY="67.0" text="AI:" textAlignment="CENTER">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHScore" layoutX="182.0" layoutY="74.0" text="Score">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAScore" layoutX="663.0" layoutY="75.0" text="Score">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -4,11 +4,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController2">
    <children>
       <Button fx:id="BtnPaper" layoutX="42.0" layoutY="187.0" mnemonicParsing="false" text="Paper" />
       <Button fx:id="BtnRock" layoutX="279.0" layoutY="328.0" mnemonicParsing="false" text="Rock" />
       <Button fx:id="BtnScissor" layoutX="509.0" layoutY="187.0" mnemonicParsing="false" text="Scissor" />
-      <ImageView fx:id="ImgRock" fitHeight="200.0" fitWidth="297.0" layoutX="152.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ImgGame" fitHeight="200.0" fitWidth="297.0" layoutX="152.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
